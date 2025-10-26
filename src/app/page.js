@@ -47,13 +47,13 @@ const INITIAL_POSTS =[
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <div className="max-w-4xl mx-auto p-6">
-        {/* Blog Header */}
+        
         <header className="mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">Animal Blog</h1>
           <p className="text-slate-600">lets take a dive into the animal world</p>
         </header>
 
-        {/* Blog Post */}
+    
         <article className="bg-white rounded-lg shadow-md p-8 mb-8">
           <div className="flex items-center gap-3 text-sm text-slate-500 mb-4">
             <div className="flex items-center gap-1">
@@ -93,30 +93,10 @@ const INITIAL_POSTS =[
           </div>
         </article>
 
-        {/* Comments Section */}
-        <section className="bg-white rounded-lg shadow-md p-8">
-          <div className="flex items-center gap-2 mb-6">
-            <MessageSquare className="text-blue-600" size={24} />
-            <h3 className="text-2xl font-bold text-slate-900">
-              Comments ({comments.length})
-            </h3>
-          </div>
+       
 
-          {/* Comment Form */}
-          <div className="mb-8">
-            <input
-              type="text"
-              placeholder="Your name"
-              value={authorName}
-              onChange={(e) => setAuthorName(e.target.value)}
-              className="w-full p-3 border border-slate-300 rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <textarea
-              placeholder="Share your thoughts..."
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-              className="w-full p-3 border border-slate-300 rounded-lg mb-3 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+      
+          
             <button
               onClick={handleSubmit}
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
@@ -124,33 +104,3 @@ const INITIAL_POSTS =[
               Post Comment
             </button>
           </div>
-
-          {/* Comments List */}
-          <div className="space-y-4">
-            {comments.map((comment) => (
-              <div
-                key={comment.id}
-                className="border border-slate-200 rounded-lg p-4 hover:bg-slate-50 transition-colors"
-              >
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h4 className="font-semibold text-slate-900">{comment.author}</h4>
-                    <p className="text-sm text-slate-500">{comment.timestamp}</p>
-                  </div>
-                  <button
-                    onClick={() => handleLike(comment.id)}
-                    className="flex items-center gap-1 text-slate-600 hover:text-blue-600 transition-colors"
-                  >
-                    <ThumbsUp size={16} />
-                    <span className="text-sm">{comment.likes}</span>
-                  </button>
-                </div>
-                <p className="text-slate-700">{comment.content}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-    </div>
-  );
-]
